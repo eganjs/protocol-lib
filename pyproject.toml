@@ -4,7 +4,7 @@ build-backend = "poetry.masonry.api"
 
 [tool.poetry]
 name = "protocol-lib"
-version = "0.1.0"
+version = "0.2.0"
 description = "Protocols for better structural typing"
 authors = [ "Joseph Egan <joseph.s.egan@gmail.com>" ]
 license = "MIT"
@@ -22,3 +22,4 @@ readme = "README.md"
   pyprojroot = "^0.2.0"
   pytest = "^6"
   toml = "^0.10.1"
+  jedi = "^0.17.2"
