@@ -533,6 +533,7 @@ const project = new PoetryProject({
   repository: "https://github.com/eganjs/protocol-lib",
   dependencies: {
     python: "^3.6",
+    "typing-extensions": "^3.7.4.3",
   },
   devDependencies: {
     jedi: "^0.17.2",

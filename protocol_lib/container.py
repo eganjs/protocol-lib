@@ -1,4 +1,6 @@
-from typing import Protocol, TypeVar, runtime_checkable
+from typing import TypeVar
+
+from typing_extensions import Protocol, runtime_checkable
 
 __all__ = ["Container"]
 
