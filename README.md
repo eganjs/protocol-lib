@@ -8,7 +8,7 @@ Protocols for better structural typing
 
 Implement Protocols for:
 - [x] Container
-- [ ] Hashable
+- [x] Hashable
 - [ ] Iterable
 - [ ] Iterator
 - [ ] Reversible

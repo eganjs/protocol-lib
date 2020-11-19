@@ -4,7 +4,7 @@ build-backend = "poetry.masonry.api"
 
 [tool.poetry]
 name = "protocol-lib"
-version = "0.2.0"
+version = "0.3.0"
 description = "Protocols for better structural typing"
 authors = [ "Joseph Egan <joseph.s.egan@gmail.com>" ]
 license = "MIT"
