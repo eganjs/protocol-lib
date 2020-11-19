@@ -165,11 +165,7 @@ class PoetryProject extends Project {
     });
 
     new File(this, ".mypy.ini", {
-      content: [
-        "[mypy]",
-        "strict = True",
-        "mypy_path = stubs",
-      ],
+      content: ["[mypy]", "strict = True", "mypy_path = stubs"],
     });
 
     new TomlFile(this, "pyproject.toml", {
@@ -531,14 +527,16 @@ class PoetryProject extends Project {
 
 const project = new PoetryProject({
   name: "protocol-lib",
-  version: "0.1.0",
+  version: "0.2.0",
   description: "Protocols for better structural typing",
   authors: ["Joseph Egan <joseph.s.egan@gmail.com>"],
   repository: "https://github.com/eganjs/protocol-lib",
   dependencies: {
     python: "^3.6",
+    "typing-extensions": "^3.7.4.3",
   },
   devDependencies: {
+    jedi: "^0.17.2",
   },
   license: "MIT",
   copyrightOwner: "Joseph Egan",

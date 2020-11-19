@@ -7,7 +7,7 @@ Protocols for better structural typing
 ## Goals
 
 Implement Protocols for:
-- [ ] Container
+- [x] Container
 - [ ] Hashable
 - [ ] Iterable
 - [ ] Iterator
