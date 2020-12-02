@@ -11,7 +11,7 @@ Implement Protocols for:
 - [x] Hashable
 - [x] Iterable
 - [x] Iterator
-- [ ] Reversible
+- [x] Reversible
 - [ ] Generator
 - [ ] Sized
 - [ ] Callable
