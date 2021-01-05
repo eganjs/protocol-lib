@@ -12,7 +12,7 @@ Implement Protocols for:
 - [x] Iterable
 - [x] Iterator
 - [x] Reversible
-- [ ] Generator
+- [ ] ~~Generator~~
 - [ ] Sized
 - [ ] Callable
 - [ ] Collection
@@ -32,6 +32,10 @@ Implement Protocols for:
 - [ ] AsyncIterable
 - [ ] AsyncIterator
 - [ ] AsyncGenerator
+
+## Notes
+
+Generator is not currently implemented in this library. This is due to challenges encountered when attempting to implement it.
 
 ## Updating project config
 
