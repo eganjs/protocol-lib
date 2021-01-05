@@ -13,7 +13,7 @@ Implement Protocols for:
 - [x] Iterator
 - [x] Reversible
 - [ ] ~~Generator~~
-- [ ] Sized
+- [x] Sized
 - [ ] Callable
 - [ ] Collection
 - [ ] Sequence
