@@ -1,8 +1,9 @@
-__version__ = "0.5.0"
+__version__ = "0.6.0"
 
 from .container import Container
 from .hashable import Hashable
 from .iterable import Iterable, Iterator, Reversible
+from .sized import Sized
 
 __all__ = [
     "Container",
@@ -10,4 +11,5 @@ __all__ = [
     "Iterable",
     "Iterator",
     "Reversible",
+    "Sized",
 ]
