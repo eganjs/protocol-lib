@@ -1,4 +1,4 @@
-from protocol_lib import Iterator, Reversible
+from protocol_lib import Iterable, Iterator, Reversible
 
 
 def test_reversible() -> None:
@@ -24,3 +24,7 @@ def test_reversible() -> None:
     assert next(backwards) == 4
     assert next(backwards) == 2
     assert next(backwards) == 1
+
+
+def test_reversible_structural_subclasses() -> None:
+    assert issubclass(Reversible, Iterable)
