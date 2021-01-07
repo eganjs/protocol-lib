@@ -24,5 +24,5 @@ def test_iterable_and_iterator() -> None:
     assert next(iter(impl_iterator)) == 84
 
 
-def test_iterator_is_subclass_of_iterable() -> None:
+def test_iterator_structural_subclasses() -> None:
     assert issubclass(Iterator, Iterable)
