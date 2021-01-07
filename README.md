@@ -15,7 +15,7 @@ Implement Protocols for:
 - [ ] ~~Generator~~
 - [x] Sized
 - [ ] Callable
-- [ ] Collection
+- [x] Collection
 - [ ] Sequence
 - [ ] MutableSequence
 - [ ] ByteString
