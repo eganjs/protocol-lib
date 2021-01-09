@@ -16,7 +16,7 @@ Implement Protocols for:
 - [x] Sized
 - [ ] Callable
 - [x] Collection
-- [ ] Sequence
+- [x] Sequence
 - [ ] MutableSequence
 - [ ] ByteString
 - [ ] Set
