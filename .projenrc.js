@@ -527,7 +527,7 @@ class PoetryProject extends Project {
 
 const project = new PoetryProject({
   name: "protocol-lib",
-  version: "0.8.0",
+  version: "0.9.0",
   description: "Protocols for better structural typing",
   authors: ["Joseph Egan <joseph.s.egan@gmail.com>"],
   repository: "https://github.com/eganjs/protocol-lib",
