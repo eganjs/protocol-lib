@@ -21,7 +21,7 @@ Implement Protocols for:
 - [ ] ByteString
 - [ ] Set
 - [ ] MutableSet
-- [ ] Mapping
+- [x] Mapping
 - [ ] MutableMapping
 - [ ] MappingView
 - [ ] ItemsView

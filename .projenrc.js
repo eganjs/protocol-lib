@@ -188,7 +188,7 @@ class PoetryProject extends Project {
               black: "^20.8b1",
               flake8: "^3.8.4",
               isort: "^5.6",
-              mypy: "^0.790",
+              mypy: "^0.800",
               pyprojroot: "^0.2.0",
               pytest: "^6",
               toml: "^0.10.1",
@@ -527,7 +527,7 @@ class PoetryProject extends Project {
 
 const project = new PoetryProject({
   name: "protocol-lib",
-  version: "0.9.0",
+  version: "0.10.0",
   description: "Protocols for better structural typing",
   authors: ["Joseph Egan <joseph.s.egan@gmail.com>"],
   repository: "https://github.com/eganjs/protocol-lib",
