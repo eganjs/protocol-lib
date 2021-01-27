@@ -17,5 +17,5 @@ def test_mapping() -> None:
 def test_sequence_structural_subclasses() -> None:
     assert issubclass(
         Mapping,
-        (Collection,),
+        Collection,
     )
