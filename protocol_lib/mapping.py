@@ -1,6 +1,6 @@
-from typing import TypeVar, Union, Tuple, Optional
+from typing import Optional, Tuple, TypeVar, Union
 
-from typing_extensions import Protocol, runtime_checkable
+from typing_extensions import Protocol, overload, runtime_checkable
 
 from .iterable import Iterable, Iterator
 
@@ -11,6 +11,7 @@ __all__ = [
 
 K = TypeVar("K")
 V = TypeVar("V")
+T = TypeVar("T")
 
 
 @runtime_checkable
@@ -33,14 +34,19 @@ class Mapping(Protocol[K, V]):
     def __ne__(self, other: object) -> bool:
         ...
 
-    def get(self, key: K, default: Optional[V] = ...) -> V:
+    @overload
+    def get(self, key: K) -> Optional[V]:
         ...
 
-    def items(self) -> Iterator[Tuple[K, V]]:
+    @overload
+    def get(self, key: K, default: Union[V, T]) -> Union[V, T]:
         ...
 
-    def keys(self) -> Iterator[K]:
+    def items(self) -> Iterable[Tuple[K, V]]:
         ...
 
-    def values(self) -> Iterator[V]:
+    def keys(self) -> Iterable[K]:
+        ...
+
+    def values(self) -> Iterable[V]:
         ...

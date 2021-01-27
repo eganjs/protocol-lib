@@ -7,7 +7,6 @@ def test_mapping() -> None:
     assert "two" in impl
     assert "three" not in impl
     assert list(iter(impl)) == ["severn", "two", "five"]
-    assert list(reversed(impl)) == ["five", "two", "severn"]
     assert len(impl) == 3
     assert impl["severn"] == 7
     assert list(impl.keys()) == ["severn", "two", "five"]
@@ -18,7 +17,5 @@ def test_mapping() -> None:
 def test_sequence_structural_subclasses() -> None:
     assert issubclass(
         Mapping,
-        (
-            Collection,
-        ),
+        (Collection,),
     )
