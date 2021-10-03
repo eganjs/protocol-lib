@@ -312,9 +312,7 @@ class PoetryProject extends Project {
       ],
       jobs: [
         {
-          if: "github.actor == 'dependabot[bot]'",
-          needs: ["lint", "test"],
-          name: "dependabot-automerge",
+          name: "check-projen",
           "runs-on": "ubuntu-latest",
           steps: [
             {

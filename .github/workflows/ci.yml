@@ -115,12 +115,8 @@ jobs:
         run: timeout 10s poetry run pip --version || rm -rf .venv
       - name: test
         run: make test
-  dependabot-automerge:
-    if: github.actor == 'dependabot[bot]'
-    needs:
-      - lint
-      - test
-    name: dependabot-automerge
+  check-projen:
+    name: check-projen
     runs-on: ubuntu-latest
     steps:
       - name: checkout
