@@ -16,12 +16,15 @@ readme = "README.md"
   typing-extensions = "^3.7.4.3"
 
   [tool.poetry.dev-dependencies]
+  pytest = "^6"
   black = "^20.8b1"
   flake8 = "^3.8.4"
   isort = "^5.6"
-  mypy = { git = "https://github.com/eganjs/mypy", branch = "fix-issubclass-for-protocol" }
   pyprojroot = "^0.2.0"
-  pytest = "^6"
   toml = "^0.10.1"
-  jedi = "^0.17.2"
   types-toml = "^0.10.0"
+  jedi = "^0.17.2"
+
+    [tool.poetry.dev-dependencies.mypy]
+    git = "https://github.com/eganjs/mypy"
+    branch = "fix-issubclass-for-protocol"

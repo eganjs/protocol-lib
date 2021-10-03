@@ -16,7 +16,7 @@ class File extends FileBase {
   }
 
   synthesizeContent(resolver) {
-    return `${this.content.map(e => e + "\n").join("")}`;
+    return `${this.content.map((e) => e + "\n").join("")}`;
   }
 }
 
@@ -45,8 +45,7 @@ class PoetryWorkflow extends GithubWorkflow {
       {
         name: "get full Python version",
         id: "full-python-version",
-        run:
-          "echo ::set-output name=version::$(python -c \"import sys; print('-'.join(str(v) for v in sys.version_info))\")",
+        run: "echo ::set-output name=version::$(python -c \"import sys; print('-'.join(str(v) for v in sys.version_info))\")",
       },
       {
         name: "install Poetry using bash",
@@ -70,8 +69,7 @@ class PoetryWorkflow extends GithubWorkflow {
         id: "cache",
         with: {
           path: ".venv",
-          key:
-            "venv-${{ runner.os }}-${{ steps.full-python-version.outputs.version }}-${{ hashFiles('**/poetry.lock') }}",
+          key: "venv-${{ runner.os }}-${{ steps.full-python-version.outputs.version }}-${{ hashFiles('**/poetry.lock') }}",
         },
       },
       {
@@ -184,16 +182,7 @@ class PoetryProject extends Project {
             repository: options.repository,
             readme: "README.md",
             dependencies: options.dependencies,
-            ["dev-dependencies"]: {
-              black: "^20.8b1",
-              flake8: "^3.8.4",
-              isort: "^5.6",
-              mypy: "^0.800",
-              pyprojroot: "^0.2.0",
-              pytest: "^6",
-              toml: "^0.10.1",
-              ...(!!options.devDependencies ? options.devDependencies : {}),
-            },
+            "dev-dependencies": options.devDependencies,
             source: options.packageRepositories,
           },
         },
@@ -527,7 +516,7 @@ class PoetryProject extends Project {
 
 const project = new PoetryProject({
   name: "protocol-lib",
-  version: "0.10.0",
+  version: "1.0.0",
   description: "Protocols for better structural typing",
   authors: ["Joseph Egan <joseph.s.egan@gmail.com>"],
   repository: "https://github.com/eganjs/protocol-lib",
@@ -536,6 +525,17 @@ const project = new PoetryProject({
     "typing-extensions": "^3.7.4.3",
   },
   devDependencies: {
+    pytest: "^6",
+    black: "^20.8b1",
+    flake8: "^3.8.4",
+    isort: "^5.6",
+    mypy: {
+      git: "https://github.com/eganjs/mypy",
+      branch: "fix-issubclass-for-protocol",
+    },
+    pyprojroot: "^0.2.0",
+    toml: "^0.10.1",
+    "types-toml": "^0.10.0",
     jedi: "^0.17.2",
   },
   license: "MIT",

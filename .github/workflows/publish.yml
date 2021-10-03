@@ -61,9 +61,9 @@ jobs:
         run: make dist
       - name: check tag matches version
         run: ls dist/protocol-lib-${{ steps.tag.outputs.tag }}.tar.gz
-          dist/protocol-lib-0.10.0.tar.gz dist/protocol_lib-${{
+          dist/protocol-lib-1.0.0.tar.gz dist/protocol_lib-${{
           steps.tag.outputs.tag }}-py3-none-any.whl
-          dist/protocol_lib-0.10.0-py3-none-any.whl
+          dist/protocol_lib-1.0.0-py3-none-any.whl
       - name: create release
         id: create_release
         uses: actions/create-release@v1
@@ -80,8 +80,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: dist/protocol-lib-0.10.0.tar.gz
-          asset_name: protocol-lib-0.10.0.tar.gz
+          asset_path: dist/protocol-lib-1.0.0.tar.gz
+          asset_name: protocol-lib-1.0.0.tar.gz
           asset_content_type: application/gzip
       - name: publish to pypi
         env:
