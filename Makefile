@@ -34,3 +34,8 @@ dist/protocol-lib-1.0.0.tar.gz dist/protocol_lib-1.0.0-py3-none-any.whl: $(shell
 poetry.lock: pyproject.toml
 	poetry lock
 	@touch -c poetry.lock
+
+.PHONY: projen
+projen:
+	npx prettier --trailing-comma all --write .projenrc.js
+	npx projen@0.3.173

@@ -263,6 +263,14 @@ class PoetryProject extends Project {
           prerequisites: ["pyproject.toml"],
           recipe: ["poetry lock", "@touch -c poetry.lock"],
         },
+        {
+          phony: true,
+          targets: ["projen"],
+          recipe: [
+            "npx prettier --trailing-comma all --write .projenrc.js",
+            "npx projen@0.3.173",
+          ],
+        },
       ],
     });
 
@@ -480,7 +488,7 @@ class PoetryProject extends Project {
         "",
         "7.  When you're done making changes, check that your changes pass the checks and tests:",
         "    ```shell script",
-        "    make lint",
+        "    make fmt lint",
         "    make test",
         "    ```",
         "",
@@ -506,7 +514,7 @@ class PoetryProject extends Project {
         "A reminder for maintainers on how to publish. Make sure all your changes are committed and merged into the main branch. Then create a tag:",
         "```shell script",
         "git tag $(poetry version | awk '{print $2}')",
-        "git push $(poetry version | awk '{print $2}')",
+        "git push origin $(poetry version | awk '{print $2}')",
         "```",
         "GitHub Actions will then verify the tag matches the project version in the commit, create a GitHub release and finally publish to the package repository.",
       ],

@@ -39,4 +39,4 @@ Generator is not currently implemented in this library. This is due to challenge
 
 ## Updating project config
 
-To do this make edits to the `.projenrc.js` file in the root of the project and run `npx projen` to update existing or generate new config. Please also use `npx prettier --trailing-comma all --write .projenrc.js` to format this file.
+To edit project configuration, update the `.projenrc.js` file in the root of the project and run `make projen`.
