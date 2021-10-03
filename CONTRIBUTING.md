@@ -95,6 +95,6 @@ Before you submit a pull request, check that it meets these guidelines:
 A reminder for maintainers on how to publish. Make sure all your changes are committed and merged into the main branch. Then create a tag:
 ```shell script
 git tag $(poetry version | awk '{print $2}')
-git push $(poetry version | awk '{print $2}')
+git push origin $(poetry version | awk '{print $2}')
 ```
 GitHub Actions will then verify the tag matches the project version in the commit, create a GitHub release and finally publish to the package repository.
