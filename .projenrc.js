@@ -312,7 +312,7 @@ class PoetryProject extends Project {
       ],
       jobs: [
         {
-          name: "check projen",
+          name: "check-projen",
           "runs-on": "ubuntu-latest",
           steps: [
             {
