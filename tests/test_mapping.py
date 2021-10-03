@@ -1,8 +1,8 @@
-from protocol_lib import Collection, Mapping
+from protocol_lib import ICollection, IMapping
 
 
 def test_mapping() -> None:
-    impl: Mapping[str, int] = {"severn": 7, "two": 2, "five": 5}
+    impl: IMapping[str, int] = {"severn": 7, "two": 2, "five": 5}
 
     assert "two" in impl
     assert "three" not in impl
@@ -16,6 +16,6 @@ def test_mapping() -> None:
 
 def test_sequence_structural_subclasses() -> None:
     assert issubclass(
-        Mapping,
-        Collection,
+        IMapping,
+        ICollection,
     )

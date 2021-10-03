@@ -1,4 +1,4 @@
-from protocol_lib import Iterable, Iterator
+from protocol_lib import IIterable, IIterator
 
 
 def test_iterable_and_iterator() -> None:
@@ -17,12 +17,12 @@ def test_iterable_and_iterator() -> None:
         def __iter__(self) -> ImplIterator:
             return ImplIterator()
 
-    impl_iterable: Iterable[int] = ImplIterable()
-    impl_iterator: Iterator[int] = iter(impl_iterable)
+    impl_iterable: IIterable[int] = ImplIterable()
+    impl_iterator: IIterator[int] = iter(impl_iterable)
 
     assert next(impl_iterator) == 42
     assert next(iter(impl_iterator)) == 84
 
 
 def test_iterator_structural_subclasses() -> None:
-    assert issubclass(Iterator, Iterable)
+    assert issubclass(IIterator, IIterable)

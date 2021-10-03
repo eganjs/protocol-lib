@@ -2,20 +2,22 @@ from typing import TypeVar
 
 from typing_extensions import Protocol, runtime_checkable
 
-from .iterable import Iterator
+from protocol_lib.iterable import IIterator
 
-__all__ = ["Collection"]
+__all__ = [
+    "ICollection",
+]
 
 
 T = TypeVar("T")
 
 
 @runtime_checkable
-class Collection(Protocol[T]):
+class ICollection(Protocol[T]):
     def __contains__(self, item: T) -> bool:
         ...
 
-    def __iter__(self) -> Iterator[T]:
+    def __iter__(self) -> IIterator[T]:
         ...
 
     def __len__(self) -> int:

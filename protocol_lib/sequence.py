@@ -2,11 +2,11 @@ from typing import TypeVar, Union, overload
 
 from typing_extensions import Protocol, runtime_checkable
 
-from .iterable import Iterable, Iterator
+from protocol_lib.iterable import IIterable, IIterator
 
 __all__ = [
-    "Sequence",
-    "MutableSequence",
+    "ISequence",
+    "IMutableSequence",
 ]
 
 
@@ -14,14 +14,14 @@ T = TypeVar("T")
 
 
 @runtime_checkable
-class Sequence(Protocol[T]):
+class ISequence(Protocol[T]):
     def __contains__(self, item: T) -> bool:
         ...
 
-    def __iter__(self) -> Iterator[T]:
+    def __iter__(self) -> IIterator[T]:
         ...
 
-    def __reversed__(self) -> Iterator[T]:
+    def __reversed__(self) -> IIterator[T]:
         ...
 
     def __len__(self) -> int:
@@ -32,10 +32,10 @@ class Sequence(Protocol[T]):
         ...
 
     @overload
-    def __getitem__(self, index: slice) -> "Sequence[T]":
+    def __getitem__(self, index: slice) -> "ISequence[T]":
         ...
 
-    def __getitem__(self, index: Union[int, slice]) -> Union[T, "Sequence[T]"]:
+    def __getitem__(self, index: Union[int, slice]) -> Union[T, "ISequence[T]"]:
         ...
 
     def index(self, value: T, start: int = ..., stop: int = ...) -> int:
@@ -46,14 +46,14 @@ class Sequence(Protocol[T]):
 
 
 @runtime_checkable
-class MutableSequence(Protocol[T]):
+class IMutableSequence(Protocol[T]):
     def __contains__(self, item: T) -> bool:
         ...
 
-    def __iter__(self) -> Iterator[T]:
+    def __iter__(self) -> IIterator[T]:
         ...
 
-    def __reversed__(self) -> Iterator[T]:
+    def __reversed__(self) -> IIterator[T]:
         ...
 
     def __len__(self) -> int:
@@ -64,10 +64,10 @@ class MutableSequence(Protocol[T]):
         ...
 
     @overload
-    def __getitem__(self, index: slice) -> "MutableSequence[T]":
+    def __getitem__(self, index: slice) -> "IMutableSequence[T]":
         ...
 
-    def __getitem__(self, index: Union[int, slice]) -> Union[T, "MutableSequence[T]"]:
+    def __getitem__(self, index: Union[int, slice]) -> Union[T, "IMutableSequence[T]"]:
         ...
 
     def index(self, value: T, start: int = ..., stop: int = ...) -> int:
@@ -94,7 +94,7 @@ class MutableSequence(Protocol[T]):
     def reverse(self) -> None:
         ...
 
-    def extend(self, values: Sequence[T]) -> None:
+    def extend(self, values: ISequence[T]) -> None:
         ...
 
     def pop(self, index: int = ...) -> T:
@@ -103,5 +103,5 @@ class MutableSequence(Protocol[T]):
     def remove(self, value: T) -> None:
         ...
 
-    def __iadd__(self, values: Iterable[T]) -> "MutableSequence[T]":
+    def __iadd__(self, values: IIterable[T]) -> "IMutableSequence[T]":
         ...

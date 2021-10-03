@@ -1,4 +1,4 @@
-from protocol_lib import Sized
+from protocol_lib import ISized
 
 
 def test_sized() -> None:
@@ -6,6 +6,6 @@ def test_sized() -> None:
         def __len__(self) -> int:
             return 42
 
-    impl: Sized = Impl()
+    impl: ISized = Impl()
 
     assert len(impl) == 42

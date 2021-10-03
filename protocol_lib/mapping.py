@@ -2,10 +2,10 @@ from typing import Optional, Tuple, TypeVar, Union
 
 from typing_extensions import Protocol, overload, runtime_checkable
 
-from .iterable import Iterable, Iterator
+from protocol_lib.iterable import IIterable, IIterator
 
 __all__ = [
-    "Mapping",
+    "IMapping",
 ]
 
 
@@ -15,14 +15,14 @@ T = TypeVar("T")
 
 
 @runtime_checkable
-class Mapping(Protocol[K, V]):
+class IMapping(Protocol[K, V]):
     def __contains__(self, item: V) -> bool:
         ...
 
     def __getitem__(self, index: K) -> V:
         ...
 
-    def __iter__(self) -> Iterator[K]:
+    def __iter__(self) -> IIterator[K]:
         ...
 
     def __len__(self) -> int:
@@ -42,11 +42,11 @@ class Mapping(Protocol[K, V]):
     def get(self, key: K, default: Union[V, T]) -> Union[V, T]:
         ...
 
-    def items(self) -> Iterable[Tuple[K, V]]:
+    def items(self) -> IIterable[Tuple[K, V]]:
         ...
 
-    def keys(self) -> Iterable[K]:
+    def keys(self) -> IIterable[K]:
         ...
 
-    def values(self) -> Iterable[V]:
+    def values(self) -> IIterable[V]:
         ...

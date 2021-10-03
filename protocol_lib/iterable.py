@@ -3,34 +3,34 @@ from typing import TypeVar
 from typing_extensions import Protocol, runtime_checkable
 
 __all__ = [
-    "Iterable",
-    "Iterator",
-    "Reversible",
+    "IIterable",
+    "IIterator",
+    "IReversible",
 ]
 
 
-T = TypeVar("T", covariant=True)
+T_co = TypeVar("T_co", covariant=True)
 
 
 @runtime_checkable
-class Iterable(Protocol[T]):
-    def __iter__(self) -> "Iterator[T]":
-        ...
-
-
-@runtime_checkable
-class Iterator(Protocol[T]):
-    def __iter__(self) -> "Iterator[T]":
-        ...
-
-    def __next__(self) -> T:
+class IIterable(Protocol[T_co]):
+    def __iter__(self) -> "IIterator[T_co]":
         ...
 
 
 @runtime_checkable
-class Reversible(Protocol[T]):
-    def __iter__(self) -> "Iterator[T]":
+class IIterator(Protocol[T_co]):
+    def __iter__(self) -> "IIterator[T_co]":
         ...
 
-    def __reversed__(self) -> "Iterator[T]":
+    def __next__(self) -> T_co:
+        ...
+
+
+@runtime_checkable
+class IReversible(Protocol[T_co]):
+    def __iter__(self) -> "IIterator[T_co]":
+        ...
+
+    def __reversed__(self) -> "IIterator[T_co]":
         ...
