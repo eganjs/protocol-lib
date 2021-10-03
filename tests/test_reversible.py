@@ -1,15 +1,15 @@
-from protocol_lib import Iterable, Iterator, Reversible
+from protocol_lib import IIterable, IIterator, IReversible
 
 
 def test_reversible() -> None:
     class Impl:
-        def __iter__(self) -> Iterator[int]:
+        def __iter__(self) -> IIterator[int]:
             yield from [1, 2, 4, 8]
 
-        def __reversed__(self) -> Iterator[int]:
+        def __reversed__(self) -> IIterator[int]:
             yield from [8, 4, 2, 1]
 
-    impl: Reversible[int] = Impl()
+    impl: IReversible[int] = Impl()
 
     forwards = iter(impl)
 
@@ -27,4 +27,4 @@ def test_reversible() -> None:
 
 
 def test_reversible_structural_subclasses() -> None:
-    assert issubclass(Reversible, Iterable)
+    assert issubclass(IReversible, IIterable)

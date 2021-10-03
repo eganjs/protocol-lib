@@ -2,13 +2,15 @@ from typing import TypeVar
 
 from typing_extensions import Protocol, runtime_checkable
 
-__all__ = ["Container"]
+__all__ = [
+    "IContainer",
+]
 
 
-T = TypeVar("T", contravariant=True)
+T_contra = TypeVar("T_contra", contravariant=True)
 
 
 @runtime_checkable
-class Container(Protocol[T]):
-    def __contains__(self, item: T) -> bool:
+class IContainer(Protocol[T_contra]):
+    def __contains__(self, item: T_contra) -> bool:
         ...

@@ -1,8 +1,8 @@
-from protocol_lib import Collection, Iterable, Iterator, Sized
+from protocol_lib import ICollection, IIterable, IIterator, ISized
 
 
 def test_collection() -> None:
-    impl: Collection[int] = [7, 13, 42]
+    impl: ICollection[int] = [7, 13, 42]
 
     assert 42 in impl
     assert 11 not in impl
@@ -12,10 +12,10 @@ def test_collection() -> None:
 
 def test_collection_structural_subclasses() -> None:
     assert issubclass(
-        Collection,
+        ICollection,
         (
-            Sized,
-            Iterable,
-            Iterator,
+            ISized,
+            IIterable,
+            IIterator,
         ),
     )

@@ -1,4 +1,4 @@
-from protocol_lib import Container
+from protocol_lib import IContainer
 
 
 def test_container() -> None:
@@ -6,7 +6,7 @@ def test_container() -> None:
         def __contains__(self, item: int) -> bool:
             return item == 42
 
-    impl: Container[int] = Impl()
+    impl: IContainer[int] = Impl()
 
     assert 42 in impl
     assert 10 not in impl

@@ -1,4 +1,4 @@
-from protocol_lib import Hashable
+from protocol_lib import IHashable
 
 
 def test_hashable() -> None:
@@ -6,6 +6,6 @@ def test_hashable() -> None:
         def __hash__(self) -> int:
             return 42
 
-    impl: Hashable = Impl()
+    impl: IHashable = Impl()
 
     assert hash(impl) == 42

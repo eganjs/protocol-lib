@@ -1,8 +1,8 @@
-from protocol_lib import Collection, MutableSequence, Reversible, Sequence
+from protocol_lib import ICollection, IMutableSequence, IReversible, ISequence
 
 
 def test_sequence() -> None:
-    impl: Sequence[str] = ["7", "13", "42"]
+    impl: ISequence[str] = ["7", "13", "42"]
 
     assert "42" in impl
     assert "11" not in impl
@@ -16,16 +16,16 @@ def test_sequence() -> None:
 
 def test_sequence_structural_subclasses() -> None:
     assert issubclass(
-        Sequence,
+        ISequence,
         (
-            Collection,
-            Reversible,
+            ICollection,
+            IReversible,
         ),
     )
 
 
 def test_mutable_sequence() -> None:
-    impl: MutableSequence[str] = ["7", "13", "42"]
+    impl: IMutableSequence[str] = ["7", "13", "42"]
 
     impl[2] = "17"
     assert impl == ["7", "13", "17"]
@@ -62,4 +62,4 @@ def test_mutable_sequence() -> None:
 
 
 def test_mutable_sequence_structural_subclasses() -> None:
-    assert issubclass(MutableSequence, Sequence)  # type: ignore
+    assert issubclass(IMutableSequence, ISequence)

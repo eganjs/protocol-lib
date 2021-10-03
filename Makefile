@@ -22,9 +22,9 @@ publish: dist
 	poetry publish
 
 .PHONY: dist
-dist: dist/protocol-lib-0.10.0.tar.gz dist/protocol_lib-0.10.0-py3-none-any.whl
+dist: dist/protocol-lib-1.0.0.tar.gz dist/protocol_lib-1.0.0-py3-none-any.whl
 
-dist/protocol-lib-0.10.0.tar.gz dist/protocol_lib-0.10.0-py3-none-any.whl: $(shell find protocol_lib -type f -name '*.py')
+dist/protocol-lib-1.0.0.tar.gz dist/protocol_lib-1.0.0-py3-none-any.whl: $(shell find protocol_lib -type f -name '*.py')
 	poetry build
 
 .venv: poetry.lock

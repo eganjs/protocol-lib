@@ -1,22 +1,22 @@
-__version__ = "0.10.0"
+__version__ = "1.0.0"
 
-from .collection import Collection
-from .container import Container
-from .hashable import Hashable
-from .iterable import Iterable, Iterator, Reversible
-from .mapping import Mapping
-from .sequence import MutableSequence, Sequence
-from .sized import Sized
+from protocol_lib.collection import ICollection
+from protocol_lib.container import IContainer
+from protocol_lib.hashable import IHashable
+from protocol_lib.iterable import IIterable, IIterator, IReversible
+from protocol_lib.mapping import IMapping
+from protocol_lib.sequence import IMutableSequence, ISequence
+from protocol_lib.sized import ISized
 
 __all__ = [
-    "Collection",
-    "Container",
-    "Hashable",
-    "Iterable",
-    "Iterator",
-    "Mapping",
-    "MutableSequence",
-    "Reversible",
-    "Sequence",
-    "Sized",
+    "ICollection",
+    "IContainer",
+    "IHashable",
+    "IIterable",
+    "IIterator",
+    "IMapping",
+    "IMutableSequence",
+    "IReversible",
+    "ISequence",
+    "ISized",
 ]

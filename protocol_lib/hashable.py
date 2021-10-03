@@ -1,9 +1,11 @@
 from typing_extensions import Protocol, runtime_checkable
 
-__all__ = ["Hashable"]
+__all__ = [
+    "IHashable",
+]
 
 
 @runtime_checkable
-class Hashable(Protocol):
+class IHashable(Protocol):
     def __hash__(self) -> int:
         ...

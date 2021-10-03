@@ -1,9 +1,11 @@
 from typing_extensions import Protocol, runtime_checkable
 
-__all__ = ["Sized"]
+__all__ = [
+    "ISized",
+]
 
 
 @runtime_checkable
-class Sized(Protocol):
+class ISized(Protocol):
     def __len__(self) -> int:
         ...
