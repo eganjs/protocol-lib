@@ -318,23 +318,23 @@ class PoetryProject extends Project {
           "runs-on": "ubuntu-latest",
           steps: [
             {
-              uses: "actions/github-script@v3",
+              name: "checkout",
+              uses: "actions/checkout@v2",
+            },
+            {
+              name: "set up Node 16",
+              uses: "actions/setup-node@v2",
               with: {
-                "github-token": "${{ secrets.GITHUB_TOKEN }}",
-                script: [
-                  "github.pullRequests.createReview({",
-                  "  owner: context.payload.repository.owner.login,",
-                  "  repo: context.payload.repository.name,",
-                  "  pull_number: context.payload.pull_request.number,",
-                  "  event: 'APPROVE'",
-                  "})",
-                  "github.pullRequests.merge({",
-                  "  owner: context.payload.repository.owner.login,",
-                  "  repo: context.payload.repository.name,",
-                  "  pull_number: context.payload.pull_request.number",
-                  "})",
-                ].join("\n"),
+                "node-version": "16",
               },
+            },
+            {
+              name: "run projen",
+              run: "make projen",
+            },
+            {
+              name: "check for changes",
+              run: "git diff --exit-code",
             },
           ],
         },
