@@ -263,6 +263,14 @@ class PoetryProject extends Project {
           prerequisites: ["pyproject.toml"],
           recipe: ["poetry lock", "@touch -c poetry.lock"],
         },
+        {
+          phony: true,
+          targets: ["projen"],
+          recipe: [
+            "npx prettier --trailing-comma all --write .projenrc.js",
+            "npx projen@0.3.173",
+          ],
+        },
       ],
     });
 
@@ -480,7 +488,7 @@ class PoetryProject extends Project {
         "",
         "7.  When you're done making changes, check that your changes pass the checks and tests:",
         "    ```shell script",
-        "    make lint",
+        "    make fmt lint",
         "    make test",
         "    ```",
         "",

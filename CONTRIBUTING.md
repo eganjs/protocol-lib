@@ -69,7 +69,7 @@ Ready to contribute? Here's how to get set up for local development.
 
 7.  When you're done making changes, check that your changes pass the checks and tests:
     ```shell script
-    make lint
+    make fmt lint
     make test
     ```
 
